@@ -24,12 +24,16 @@ int yPalletRechts = 200;
 
 int beweegPallet = 5;
 
+int AILinks;
+int AIRechts;
+
 
 void setup() 
 {
   size(1300, 600);
   noStroke();
   frameRate(80);
+  
   ellipseMode(RADIUS);
   myBus = new MidiBus(this, 0, 3);
   xpos = 400;
@@ -38,7 +42,7 @@ void setup()
 
 void draw() 
 {
-  background(120);
+  background(175);
   puntenTeller();
 
   xpos = xpos + ( xspeed * xdirection );
@@ -76,9 +80,20 @@ void draw()
 
   fill(0,255,0);
   stroke(0,255,0);
-  rect(xPalletinks,yPalletLinks,breedtePallet,lengtePallet);
-  rect(xPalletRechts,yPalletRechts,breedtePallet,lengtePallet);
+  rect(xPalletinks,yPalletLinks,breedtePallet,lengtePallet,20);
+  rect(xPalletRechts,yPalletRechts,breedtePallet,lengtePallet,20);
+  
+  if(AILinks == 1){
+      yPalletLinks = (int)ypos - 50;
+      myBus.sendControllerChange(0,81,(int)map(ypos,0,600,0,127));
+  }
+  
+  if(AIRechts == 1){
+      yPalletRechts = (int)ypos - 50;
+      myBus.sendControllerChange(0,88,(int)map(ypos,600,0,0,127));
+  }
 }
+
 
 
 void puntenTeller()
@@ -106,5 +121,17 @@ void controllerChange(int channel, int number, int value) {
   
   if(number == 88){
     yPalletRechts = (int)map(value,127,0,0,450);
+  }
+  
+  if(number == 89 && value == 127){
+    AILinks = 1;
+  } else if(number == 89 && value == 0){
+   AILinks = 0;
+  }
+  
+    if(number == 90 && value == 127){
+    AIRechts = 1;
+  } else if (number == 90 && value == 0){
+   AIRechts = 0; 
   }
 }
