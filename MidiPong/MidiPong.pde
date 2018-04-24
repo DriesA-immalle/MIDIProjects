@@ -2,7 +2,7 @@ import themidibus.*;
 
 MidiBus myBus; 
 
-int rad = 20;        
+int rad = 10;        
 float xpos, ypos;    
 
 float xspeed = 4.9;  
@@ -15,7 +15,7 @@ int tellerRechts = 0;
 int tellerLinks = 0;
 
 int breedtePallet = 10;
-int lengtePallet = 150;
+int lengtePallet = 100;
 
 int xPalletinks = 15;
 int xPalletRechts = 1270;
@@ -50,6 +50,8 @@ void draw()
 
   if (ypos > height-rad || ypos < rad) {
     ydirection *= -1;
+    xspeed += 0.1;
+    yspeed += 0.1;
   }
 
   if (xpos > xPalletinks + rad 
@@ -85,7 +87,7 @@ void draw()
   
   if(AILinks == 1){
       yPalletLinks = (int)ypos - 50;
-      myBus.sendControllerChange(0,81,(int)map(ypos,0,600,0,127));
+      myBus.sendControllerChange(0,81,(int)map(ypos,600,0,0,127));
   }
   
   if(AIRechts == 1){
@@ -93,8 +95,6 @@ void draw()
       myBus.sendControllerChange(0,88,(int)map(ypos,600,0,0,127));
   }
 }
-
-
 
 void puntenTeller()
 {  
@@ -116,11 +116,11 @@ void puntenTeller()
 
 void controllerChange(int channel, int number, int value) {
   if(number == 81){
-    yPalletLinks = (int)map(value,127,0,0,450);
+    yPalletLinks = (int)map(value,127,0,0,500);
   }
   
   if(number == 88){
-    yPalletRechts = (int)map(value,127,0,0,450);
+    yPalletRechts = (int)map(value,127,0,0,500);
   }
   
   if(number == 89 && value == 127){
