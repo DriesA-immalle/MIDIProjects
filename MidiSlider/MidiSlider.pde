@@ -11,7 +11,7 @@ void setup() {
   frameRate(60);
   textSize(40);
   
-   hs1 = new HScrollbar(0, 111, 127, 16, 16);
+   hs1 = new HScrollbar(0, 111, width, 16, 16);
   
   myBus = new MidiBus(this, 0, 3);
 }
@@ -26,7 +26,7 @@ void draw(){
   hs1.update();
   hs1.display();
 
-  int xSlider = hs1.getSliderPosition();
+  int xSlider = (int)map(hs1.getSliderPosition(),0,400,0,127);
    
   if(keyPressed == true){
       switch(key){
@@ -65,4 +65,3 @@ void controllerChange(int channel, int number, int value) {
   waarde = value;
   bus = number;
 }
-
