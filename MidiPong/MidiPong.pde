@@ -50,8 +50,6 @@ void draw()
 
   if (ypos > height-rad || ypos < rad) {
     ydirection *= -1;
-    xspeed += 0.1;
-    yspeed += 0.1;
   }
 
   if (xpos > xPalletinks + rad 
@@ -80,8 +78,8 @@ void draw()
   text(tellerLinks, 70,50);
   text(tellerRechts, 1210,50);
 
-  fill(0,255,0);
-  stroke(0,255,0);
+  fill(0,125,125);
+  stroke(0);
   rect(xPalletinks,yPalletLinks,breedtePallet,lengtePallet,20);
   rect(xPalletRechts,yPalletRechts,breedtePallet,lengtePallet,20);
   
