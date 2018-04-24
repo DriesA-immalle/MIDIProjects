@@ -9,3 +9,6 @@ Thank you Catho and Laurens for letting me use this code. Use slider 1 and 8 to 
 This program can read the value of all buttons and makes it possible to use a virtual slider to control the value of every slider using a number from 1-8.
 ## MidiStaircase
 This program makes the sliders do a form of staircase/wave.
+
+---
+<sub>Dante contributed small amounts</sub>
