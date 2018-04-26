@@ -73,6 +73,8 @@ void draw()
   fill(255);
   ellipse(xpos, ypos, rad, rad);
 
+
+
   textSize(20);
   fill(1);
   text(tellerLinks, 70,50);
@@ -84,12 +86,12 @@ void draw()
   rect(xPalletRechts,yPalletRechts,breedtePallet,lengtePallet,20);
   
   if(AILinks == 1){
-      yPalletLinks = (int)ypos - 50;
+      yPalletLinks = (int)ypos - (lengtePallet/2);
       myBus.sendControllerChange(0,81,(int)map(ypos,600,0,0,127));
   }
   
   if(AIRechts == 1){
-      yPalletRechts = (int)ypos - 50;
+      yPalletRechts = (int)ypos - (lengtePallet/2);
       myBus.sendControllerChange(0,88,(int)map(ypos,600,0,0,127));
   }
 }
@@ -132,4 +134,17 @@ void controllerChange(int channel, int number, int value) {
   } else if (number == 90 && value == 0){
    AIRechts = 0; 
   }
+    
+    if(number == 8){
+        xspeed = (int)map(value,0,127,1,4.9);
+        yspeed = (int)map(value,0,127,1,4.9);
+    }
+
+    if(number == 7){
+     rad = (int)map(value,0,127,5,30); 
+    }
+    
+    if(number == 6){
+     lengtePallet = (int)map(value,0,127,20,200); 
+    }
 }
