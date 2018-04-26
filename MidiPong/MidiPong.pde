@@ -2,7 +2,7 @@ import themidibus.*;
 
 MidiBus myBus; 
 
-int rad = 10;        
+int rad = 15;        
 float xpos, ypos;    
 
 float xspeed = 4.9;  
@@ -24,6 +24,8 @@ int yPalletRechts = 200;
 
 int beweegPallet = 5;
 
+int gray = 125;
+
 int AILinks;
 int AIRechts;
 
@@ -32,7 +34,7 @@ void setup()
 {
   size(1300, 600);
   noStroke();
-  frameRate(80);
+  frameRate(60);
   
   ellipseMode(RADIUS);
   myBus = new MidiBus(this, 0, 3);
@@ -42,7 +44,7 @@ void setup()
 
 void draw() 
 {
-  background(175);
+  background(gray);
   puntenTeller();
 
   xpos = xpos + ( xspeed * xdirection );
@@ -71,6 +73,8 @@ void draw()
 
   noStroke();
   fill(255);
+  stroke(0);
+  strokeWeight(1);
   ellipse(xpos, ypos, rad, rad);
 
 
@@ -122,15 +126,15 @@ void controllerChange(int channel, int number, int value) {
       yPalletRechts = (int)map(value,127,0,0,width-(lengtePallet+700));
     }
   
-    if(number == 89 && value == 127){
+    if(number == 73 && value == 127){
       AILinks = 1;
-    } else if(number == 89 && value == 0){
+    } else if(number == 73 && value == 0){
       AILinks = 0;
     }
   
-    if(number == 90 && value == 127){
+    if(number == 80 && value == 127){
       AIRechts = 1;
-    } else if (number == 90 && value == 0){
+    } else if (number == 80 && value == 0){
       AIRechts = 0; 
     }
     
@@ -145,5 +149,13 @@ void controllerChange(int channel, int number, int value) {
     
     if(number == 6){
        lengtePallet = (int)map(value,0,127,20,180); 
+    }
+    
+    if (number == 5){
+      gray = (int)map(value,0,127,100,200);
+    }
+    
+    if (number == 35){
+     gray = 125;
     }
 }
