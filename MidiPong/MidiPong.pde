@@ -115,11 +115,11 @@ void puntenTeller()
 
 void controllerChange(int channel, int number, int value) {
     if(number == 81){
-      yPalletLinks = (int)map(value,127,0,0,500);
+      yPalletLinks = (int)map(value,127,0,0,width-(lengtePallet+700));
     }
   
     if(number == 88){
-      yPalletRechts = (int)map(value,127,0,0,500);
+      yPalletRechts = (int)map(value,127,0,0,width-(lengtePallet+700));
     }
   
     if(number == 89 && value == 127){
@@ -144,6 +144,6 @@ void controllerChange(int channel, int number, int value) {
     }
     
     if(number == 6){
-       lengtePallet = (int)map(value,0,127,20,200); 
+       lengtePallet = (int)map(value,0,127,20,180); 
     }
 }
