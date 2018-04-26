@@ -74,7 +74,6 @@ void draw()
   ellipse(xpos, ypos, rad, rad);
 
 
-
   textSize(20);
   fill(1);
   text(tellerLinks, 70,50);
@@ -86,13 +85,13 @@ void draw()
   rect(xPalletRechts,yPalletRechts,breedtePallet,lengtePallet,20);
   
   if(AILinks == 1){
-      yPalletLinks = (int)ypos - (lengtePallet/2);
-      myBus.sendControllerChange(0,81,(int)map(ypos,600,0,0,127));
+     yPalletLinks = (int)ypos - (lengtePallet/2);
+     myBus.sendControllerChange(0,81,(int)map(ypos,600,0,0,127));
   }
   
   if(AIRechts == 1){
-      yPalletRechts = (int)ypos - (lengtePallet/2);
-      myBus.sendControllerChange(0,88,(int)map(ypos,600,0,0,127));
+     yPalletRechts = (int)ypos - (lengtePallet/2);
+     myBus.sendControllerChange(0,88,(int)map(ypos,600,0,0,127));
   }
 }
 
@@ -115,36 +114,36 @@ void puntenTeller()
 }
 
 void controllerChange(int channel, int number, int value) {
-  if(number == 81){
-    yPalletLinks = (int)map(value,127,0,0,500);
-  }
+    if(number == 81){
+      yPalletLinks = (int)map(value,127,0,0,500);
+    }
   
-  if(number == 88){
-    yPalletRechts = (int)map(value,127,0,0,500);
-  }
+    if(number == 88){
+      yPalletRechts = (int)map(value,127,0,0,500);
+    }
   
-  if(number == 89 && value == 127){
-    AILinks = 1;
-  } else if(number == 89 && value == 0){
-   AILinks = 0;
-  }
+    if(number == 89 && value == 127){
+      AILinks = 1;
+    } else if(number == 89 && value == 0){
+      AILinks = 0;
+    }
   
     if(number == 90 && value == 127){
-    AIRechts = 1;
-  } else if (number == 90 && value == 0){
-   AIRechts = 0; 
-  }
+      AIRechts = 1;
+    } else if (number == 90 && value == 0){
+      AIRechts = 0; 
+    }
     
     if(number == 8){
-        xspeed = (int)map(value,0,127,1,4.9);
-        yspeed = (int)map(value,0,127,1,4.9);
+       xspeed = (int)map(value,0,127,1,4.9);
+       yspeed = (int)map(value,0,127,1,4.9);
     }
 
     if(number == 7){
-     rad = (int)map(value,0,127,5,30); 
+       rad = (int)map(value,0,127,5,30); 
     }
     
     if(number == 6){
-     lengtePallet = (int)map(value,0,127,20,200); 
+       lengtePallet = (int)map(value,0,127,20,200); 
     }
 }
