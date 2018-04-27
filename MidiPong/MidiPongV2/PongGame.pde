@@ -51,17 +51,18 @@ class PongGame{
       
       noStroke();
       fill(255);
-      stroke(0);
+      stroke(255);
       strokeWeight(1);
       ellipse(xpos, ypos, rad, rad);
     
-      textSize(20);
-      fill(1);
+      textSize(30);
+      fill(250);
       text(tellerLinks, 70,50);
       text(tellerRechts, 1210,50);
     
-      fill(0,125,125);
-      stroke(0);
+      noFill();
+      stroke(255);
+      strokeWeight(2);
       rect(xPalletinks,yPalletLinks,breedtePallet,lengtePallet,20);
       rect(xPalletRechts,yPalletRechts,breedtePallet,lengtePallet,20);
       
