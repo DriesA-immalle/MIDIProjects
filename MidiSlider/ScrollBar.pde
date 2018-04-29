@@ -1,3 +1,5 @@
+//https://processing.org/examples/scrollbar.html
+
 class HScrollbar {
   int swidth, sheight;    // width and height of bar
   float xpos, ypos;       // x and y position of bar
