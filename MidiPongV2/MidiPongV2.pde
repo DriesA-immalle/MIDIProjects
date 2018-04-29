@@ -42,7 +42,7 @@ void draw()
     
     case playing:
         background(p.gray);
-        p.puntenTeller();
+        p.updatePunten();
 
         p.xpos = p.xpos + ( p.xspeed * p.xdirection );
         p.ypos = p.ypos + ( p.yspeed * p.ydirection );
