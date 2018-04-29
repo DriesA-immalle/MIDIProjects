@@ -87,7 +87,7 @@ class PongGame{
       }
   }
   
-  void puntenTeller(){
+  void updatePunten(){
   float rnd = random(rad,height-rad);
 
   if (xpos > width-rad) 
