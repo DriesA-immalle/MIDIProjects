@@ -19,7 +19,7 @@ void setup()
 {
   size(1300, 600);
   noStroke();
-  frameRate(60);
+  frameRate(80);
   
   
   ellipseMode(RADIUS);
