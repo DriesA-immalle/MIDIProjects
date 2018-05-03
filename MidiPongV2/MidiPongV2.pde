@@ -42,7 +42,7 @@ void handleStartScreen(){
       background(200);
       textSize(80);
       text("PONG",width/2-100,height/2);
-      text("Press any key to start!",width/2-400,height/2+90);
+      text("Press P to start!",width/2-275,height/2+90);
       if(keyPressed && key == 'p'){
        gameMode = GameMode.playing; 
       }
@@ -63,8 +63,9 @@ void handleStartScreen(){
         clear();
         background(200);
         fill(255);
-        text("Congratulations player left!",width/2-130,height/2);
-        text("You won with " + p.tellerLinks + " to " + p.tellerRechts,width/2-90,height/2+50);
+        text("Congratulations player left!",width/2-168,height/2);
+        text("You won with " + p.tellerLinks + " to " + p.tellerRechts,width/2-130,height/2+50);
+        text("Press R to play again",width/2-132,height/2+100);
         if(keyPressed && key == 'r'){
            p.tellerLinks = 0;
            p.tellerRechts = 0;
@@ -76,8 +77,9 @@ void handleStartScreen(){
         clear();
         background(200);
         fill(255);
-        text("Congratulations player right!",width/2-135,height/2);
-        text("You won with " + p.tellerRechts + " to " + p.tellerLinks,width/2-90,height/2+50);
+        text("Congratulations player right!",width/2-172,height/2);
+        text("You won with " + p.tellerRechts + " to " + p.tellerLinks,width/2-130,height/2+50);
+        text("Press R to play again",width/2-132,height/2+100);
         if(keyPressed && key == 'r'){
            p.tellerLinks = 0;
            p.tellerRechts = 0;
