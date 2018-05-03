@@ -1,8 +1,9 @@
 import themidibus.*; //Import the library
 
 MidiBus myBus; // The MidiBus
-  int counter = 1;
-  int direction = 1;
+int counter = 1;
+int direction = 1;
+
 void setup() {
   size(400, 127);
   frameRate(60);
