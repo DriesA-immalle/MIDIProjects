@@ -37,10 +37,13 @@ void draw()
 void handleStartScreen(){
    switch(gameMode){
     case startScreen:
+      clear();
+      fill(255);
+      background(200);
       textSize(80);
       text("PONG",width/2-100,height/2);
       text("Press any key to start!",width/2-400,height/2+90);
-      if(keyPressed){
+      if(keyPressed && key == 'p'){
        gameMode = GameMode.playing; 
       }
     break;
@@ -56,14 +59,13 @@ void handleStartScreen(){
     break;
       
     case gameOver:
-      
       if(p.winner == "L"){
         clear();
         background(200);
         fill(255);
         text("Congratulations player left!",width/2-130,height/2);
         text("You won with " + p.tellerLinks + " to " + p.tellerRechts,width/2-90,height/2+50);
-        if(keyPressed){
+        if(keyPressed && key == 'r'){
            p.tellerLinks = 0;
            p.tellerRechts = 0;
            gameMode = GameMode.startScreen; 
@@ -76,7 +78,7 @@ void handleStartScreen(){
         fill(255);
         text("Congratulations player right!",width/2-135,height/2);
         text("You won with " + p.tellerRechts + " to " + p.tellerLinks,width/2-90,height/2+50);
-        if(keyPressed){
+        if(keyPressed && key == 'r'){
            p.tellerLinks = 0;
            p.tellerRechts = 0;
            gameMode = GameMode.startScreen; 
