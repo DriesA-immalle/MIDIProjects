@@ -88,19 +88,19 @@ class PongGame{
   }
   
   void updatePunten(){
-  float rnd = random(rad,height-rad);
+    float rnd = random(rad,height-rad);
 
-  if (xpos > width-rad) 
-  {
-    tellerLinks += 1;
-    xpos = 650;
-    ypos = int(rnd);
+    if (xpos > width-rad) 
+    {
+      tellerLinks += 1;
+      xpos = 650;
+      ypos = int(rnd);
+    }
+    if (xpos < rad) 
+    {
+      tellerRechts += 1;
+      xpos = 650;
+      ypos = int(rnd);
+    }
   }
-  if (xpos < rad) 
-  {
-    tellerRechts += 1;
-    xpos = 650;
-    ypos = int(rnd);
-  }
- }
 }
