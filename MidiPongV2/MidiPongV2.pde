@@ -53,9 +53,9 @@ void handleStartScreen(){
         p.ypos = p.ypos + ( p.yspeed * p.ydirection );
 
         p.drawPong();
-
+    break;
       
-   case gameOver:
+    case gameOver:
       
       if(p.winner == "L"){
         clear();
@@ -64,7 +64,9 @@ void handleStartScreen(){
         text("Congratulations player left!",width/2-130,height/2);
         text("You won with " + p.tellerLinks + " to " + p.tellerRechts,width/2-90,height/2+50);
         if(keyPressed){
-            gameMode = GameMode.startScreen; 
+           p.tellerLinks = 0;
+           p.tellerRechts = 0;
+           gameMode = GameMode.startScreen; 
         }
       }
       
@@ -75,10 +77,12 @@ void handleStartScreen(){
         text("Congratulations player right!",width/2-135,height/2);
         text("You won with " + p.tellerRechts + " to " + p.tellerLinks,width/2-90,height/2+50);
         if(keyPressed){
+           p.tellerLinks = 0;
+           p.tellerRechts = 0;
            gameMode = GameMode.startScreen; 
         }
       }
-   break;
+    break;
    }
 }
 
