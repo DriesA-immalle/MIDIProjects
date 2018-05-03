@@ -30,7 +30,12 @@ void setup()
 
 void draw() 
 {
-  switch(gameMode){
+   handleStartScreen();
+}
+
+
+void handleStartScreen(){
+   switch(gameMode){
     case startScreen:
       textSize(80);
       text("PONG",width/2-100,height/2);
