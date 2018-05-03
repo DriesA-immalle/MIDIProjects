@@ -34,7 +34,7 @@ class PongGame{
         }
 
        if (xpos > xPalletinks + rad 
-          && xpos < xPalletinks + (rad+5) 
+          && xpos < xPalletinks + (rad+10) 
           && ypos > yPalletLinks 
           && ypos < yPalletLinks + lengtePallet)
        {
@@ -76,12 +76,12 @@ class PongGame{
          myBus.sendControllerChange(0,88,(int)map(ypos,600,0,0,127));
       }
       
-      if(tellerLinks == 7){
+      if(tellerLinks == 3){
         winner = "L";
         gameMode = GameMode.gameOver;
       }
       
-      if(tellerRechts == 7){
+      if(tellerRechts == 3){
         winner = "R";
         gameMode = GameMode.gameOver;
       }
@@ -102,5 +102,5 @@ class PongGame{
       xpos = 650;
       ypos = int(rnd);
     }
+   }
   }
-}
