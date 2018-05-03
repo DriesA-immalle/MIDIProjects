@@ -63,7 +63,7 @@ void handleStartScreen(){
         clear();
         background(200);
         fill(255);
-        text("Congratulations player left!",width/2-168,height/2);
+        text("Congratulations player left!",width/2-175,height/2);
         text("You won with " + p.tellerLinks + " to " + p.tellerRechts,width/2-130,height/2+50);
         text("Press R to play again",width/2-132,height/2+100);
         if(keyPressed && key == 'r'){
@@ -77,7 +77,7 @@ void handleStartScreen(){
         clear();
         background(200);
         fill(255);
-        text("Congratulations player right!",width/2-172,height/2);
+        text("Congratulations player right!",width/2-180,height/2);
         text("You won with " + p.tellerRechts + " to " + p.tellerLinks,width/2-130,height/2+50);
         text("Press R to play again",width/2-132,height/2+100);
         if(keyPressed && key == 'r'){
