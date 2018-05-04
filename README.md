@@ -1,7 +1,7 @@
 # MIDIProjects
-**All of these projects were made using the Behringer BCF2000 and themidibus library in processing.
-Always make use of preset-1 and the upper left encoder group!
-**
+**All of these projects were made using the Behringer BCF2000 and themidibus library in processing.**
+**Always make use of preset-1 and the upper left encoder group!**
+
 
 ## MidiCounter
 This program will make all the sliders and lights (on p-1) go up and down / on and off. 
