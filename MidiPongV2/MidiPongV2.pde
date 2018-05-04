@@ -4,6 +4,7 @@ MidiBus myBus;
 
 GameMode gameMode  = GameMode.startScreen;
 
+int number;
 
 enum GameMode{
  startScreen,
@@ -41,20 +42,6 @@ void draw() {
    case gameOver:
      handleGameOver();
    }
-      
-   if(p.winner == "R"){
-     clear();
-     background(p.gray);
-     fill(p.red,p.green,p.blue);
-     text("Congratulations player right!",width/2-180,height/2);
-     text("You won with " + p.tellerRechts + " to " + p.tellerLinks,width/2-130,height/2+50);
-     text("Press R to play again",width/2-132,height/2+100);
-     if(keyPressed && key == 'r'){
-       p.tellerLinks = 0;
-       p.tellerRechts = 0;
-       gameMode = GameMode.startScreen; 
-    }
-  }
 }
 
 
@@ -63,9 +50,9 @@ void handleStartScreen(){
       fill(p.red,p.green,p.blue);
       background(p.gray);
       textSize(80);
-      text("PONG",width/2-100,height/2);
-      text("Press P to start!",width/2-275,height/2+90);
-      if(keyPressed && key == 'p'){
+      text("PONG",width/2-110,height/2);
+      text("Press the startbutton to begin!",width/2-580,height/2+90);
+      if(keyPressed && key == 'p' || number == 89){
         gameMode = GameMode.playing; 
      }
 }
@@ -87,20 +74,35 @@ void handleGameOver(){
         clear();
         background(p.gray);
         fill(p.red,p.green,p.blue);
-        text("Congratulations player left!",width/2-175,height/2);
-        text("You won with " + p.tellerLinks + " to " + p.tellerRechts,width/2-130,height/2+50);
-        text("Press R to play again",width/2-132,height/2+100);
-        if(keyPressed && key == 'r'){
+        text("Congratulations player left!",width/2-175,height/2-20);
+        text("You won with " + p.tellerLinks + " to " + p.tellerRechts,width/2-130,height/2+30);
+        text("Press the startbutton to play again",width/2-220,height/2+80);
+        if(keyPressed && key == 'r' || number == 89){
            p.tellerLinks = 0;
            p.tellerRechts = 0;
            gameMode = GameMode.startScreen; 
         }
     }
+    
+     if(p.winner == "R"){
+       clear();
+       background(p.gray);
+       fill(p.red,p.green,p.blue);
+       text("Congratulations player right!",width/2-180,height/2-20);
+       text("You won with " + p.tellerRechts + " to " + p.tellerLinks,width/2-130,height/2+30);
+       text("Press the startbutton to play again",width/2-220,height/2+80);
+       if(keyPressed && key == 'r' || number == 89){
+         p.tellerLinks = 0;
+         p.tellerRechts = 0;
+         gameMode = GameMode.startScreen; 
+    }
+  }
 }
 
 
 void controllerChange(int channel, int number, int value) {
     println(number);
+    this.number = number;
     if(number == 81){
       p.yPalletLinks = (int)map(value,127,0,0,width-(p.lengtePallet+700));
     }
