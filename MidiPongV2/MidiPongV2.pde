@@ -80,6 +80,8 @@ void handleGameOver(){
         if(keyPressed && key == 'r' || number == 89){
            p.tellerLinks = 0;
            p.tellerRechts = 0;
+           myBus.sendControllerChange(0,89,0);
+           number = 0;
            gameMode = GameMode.startScreen; 
         }
     }
@@ -94,6 +96,8 @@ void handleGameOver(){
        if(keyPressed && key == 'r' || number == 89){
          p.tellerLinks = 0;
          p.tellerRechts = 0;
+         myBus.sendControllerChange(0,89,0);
+         number = 0;
          gameMode = GameMode.startScreen; 
     }
   }
