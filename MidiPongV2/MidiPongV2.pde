@@ -154,15 +154,15 @@ void controllerChange(int channel, int number, int value) {
       p.blue = (int)map(value,0,127,0,255);      
     }
     
-    if(number == 66){
+    if(number == 66 || number == 34){
       p.red = 238;
     }
 
-    if(number == 67){
+    if(number == 67 || number == 35){
       p.green = 255;
     }
     
-    if(number == 68){
+    if(number == 68 || number == 36){
       p.blue = 65;
     }    
 }   
