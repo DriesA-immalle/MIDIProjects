@@ -44,8 +44,8 @@ void draw() {
       
    if(p.winner == "R"){
      clear();
-     background(200);
-     fill(255);
+     background(p.gray);
+     fill(p.red,p.green,p.blue);
      text("Congratulations player right!",width/2-180,height/2);
      text("You won with " + p.tellerRechts + " to " + p.tellerLinks,width/2-130,height/2+50);
      text("Press R to play again",width/2-132,height/2+100);
@@ -60,8 +60,8 @@ void draw() {
 
 void handleStartScreen(){
       clear();
-      fill(255);
-      background(200);
+      fill(p.red,p.green,p.blue);
+      background(p.gray);
       textSize(80);
       text("PONG",width/2-100,height/2);
       text("Press P to start!",width/2-275,height/2+90);
@@ -85,8 +85,8 @@ void handlePlaying(){
 void handleGameOver(){
       if(p.winner == "L"){
         clear();
-        background(200);
-        fill(255);
+        background(p.gray);
+        fill(p.red,p.green,p.blue);
         text("Congratulations player left!",width/2-175,height/2);
         text("You won with " + p.tellerLinks + " to " + p.tellerRechts,width/2-130,height/2+50);
         text("Press R to play again",width/2-132,height/2+100);
@@ -100,6 +100,7 @@ void handleGameOver(){
 
 
 void controllerChange(int channel, int number, int value) {
+    println(number);
     if(number == 81){
       p.yPalletLinks = (int)map(value,127,0,0,width-(p.lengtePallet+700));
     }
@@ -133,11 +134,23 @@ void controllerChange(int channel, int number, int value) {
        p.lengtePallet = (int)map(value,0,127,20,180); 
     }
     
-    if (number == 5){
+    if(number == 5){
       p.gray = (int)map(value,0,127,100,200);
     }
     
-    if (number == 35){
+    if(number == 35){
      p.gray = 125;
     }
-  }   
+    
+    if(number == 2){
+      p.red = (int)map(value,0,127,0,255);
+    }
+    
+    if(number == 3){
+      p.green = (int)map(value,0,127,0,255);
+    }
+    
+    if(number == 4){
+      p.blue = (int)map(value,0,127,0,255);      
+    }
+}   
