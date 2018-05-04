@@ -105,7 +105,6 @@ void handleGameOver(){
 
 
 void controllerChange(int channel, int number, int value) {
-    println(number);
     this.number = number;
     if(number == 81){
       p.yPalletLinks = (int)map(value,127,0,0,width-(p.lengtePallet+700));
