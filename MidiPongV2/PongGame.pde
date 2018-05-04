@@ -21,8 +21,11 @@ class PongGame{
   
   int beweegPallet = 5;
   
-  int gray = 125;
-  
+  int gray = 175;
+  int red = 238;
+  int green = 255;
+  int blue = 65;
+    
   String winner;
   
   int AILinks;
@@ -56,12 +59,12 @@ class PongGame{
       ellipse(xpos, ypos, rad, rad);
     
       textSize(30);
-      fill(250);
+      fill(red,green,blue);
       text(tellerLinks, 70,50);
       text(tellerRechts, 1210,50);
     
       noFill();
-      stroke(255);
+      stroke(red,green,blue);
       strokeWeight(2);
       rect(xPalletinks,yPalletLinks,breedtePallet,lengtePallet,20);
       rect(xPalletRechts,yPalletRechts,breedtePallet,lengtePallet,20);
