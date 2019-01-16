@@ -14,4 +14,5 @@ This program can read the value of all buttons and makes it possible to use a vi
 This program makes the sliders do a form of staircase/wave.
 
 ---
-<sub>Dante contributed small amounts</sub>
+## Layout for BCF2000:
+![alt text](https://i.postimg.cc/Dft2ms7w/Layout.jpg)
